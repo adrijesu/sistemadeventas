@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-09-2025 a las 18:34:53
+-- Tiempo de generación: 11-09-2025 a las 21:29:29
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -50,7 +50,7 @@ CREATE TABLE `tb_almacen` (
 --
 
 INSERT INTO `tb_almacen` (`id_producto`, `codigo`, `nombre`, `descripcion`, `stock`, `stock_minimo`, `stock_maximo`, `precio_compra`, `precio_venta`, `fecha_ingreso`, `imagen`, `id_usuario`, `id_categoria`, `fyh_creacion`, `fyh_actualizacion`) VALUES
-(1, 'p-00001', 'AUDIFONO', 'audifono blanco con almuadillas', 15, 5, 100, '15', '20', '2025-08-16', '2025-08-16-10-04-57__images.jpg', 1, 1, 2025, 0),
+(1, 'p-00001', 'AUDIFONO', 'audifono blanco con almuadillas', 3, 5, 100, '15', '20', '2025-08-16', '2025-08-16-10-04-57__images.jpg', 1, 1, 2025, 0),
 (2, 'p-00002', 'gaseosa', 'gaseosa de 1L ', 30, 5, 50, '10', '20', '2025-08-17', '2025-08-17-05-09-28__gaseosa.jpg', 1, 1, 2025, 0),
 (3, 'p-00003', 'vino', 'vino tinto de 1L', 20, 5, 20, '15', '25', '2025-08-17', '2025-08-17-05-10-07__vino.jpg', 1, 1, 2025, 0);
 
@@ -85,7 +85,7 @@ CREATE TABLE `tb_compras` (
   `id_compra` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
   `nro_compra` int(11) NOT NULL,
-  `fecha_compra` datetime NOT NULL,
+  `fecha_compra` date NOT NULL,
   `id_proveedor` int(11) NOT NULL,
   `comprobante` varchar(255) NOT NULL,
   `id_usuario` int(11) NOT NULL,
@@ -100,10 +100,10 @@ CREATE TABLE `tb_compras` (
 --
 
 INSERT INTO `tb_compras` (`id_compra`, `id_producto`, `nro_compra`, `fecha_compra`, `id_proveedor`, `comprobante`, `id_usuario`, `precio_compra`, `cantidad`, `fyh_creacion`, `fyh_actualizacion`) VALUES
-(1, 1, 1, '2025-08-17 05:05:10', 4, 'FACTURA', 1, '200', 50, '2025-08-17 05:05:10', '2025-08-17 05:05:10'),
-(2, 1, 2, '2025-09-05 00:00:00', 5, 'factura nro-501224', 1, '150', 50, '2025-09-05 17:39:37', '0000-00-00 00:00:00'),
-(3, 3, 3, '2025-09-06 00:00:00', 4, 'FACTURA N-15663', 1, '150', 15, '2025-09-06 11:06:26', '0000-00-00 00:00:00'),
-(4, 2, 4, '2025-09-06 00:00:00', 5, 'BOLETA DE VENTA 2215', 1, '100', 10, '2025-09-06 11:07:04', '0000-00-00 00:00:00');
+(1, 1, 1, '2025-08-17', 4, 'FACTURA', 1, '200', 50, '2025-08-17 05:05:10', '2025-08-17 05:05:10'),
+(2, 1, 2, '2025-09-05', 5, 'factura nro-501224', 1, '150', 50, '2025-09-05 17:39:37', '0000-00-00 00:00:00'),
+(3, 3, 3, '2025-09-06', 4, 'FACTURA N-15663', 1, '150', 15, '2025-09-06 11:06:26', '0000-00-00 00:00:00'),
+(4, 2, 4, '2025-09-06', 5, 'BOLETA DE VENTA 2215', 1, '100', 10, '2025-09-06 11:07:04', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -243,7 +243,7 @@ ALTER TABLE `tb_categorias`
 -- AUTO_INCREMENT de la tabla `tb_compras`
 --
 ALTER TABLE `tb_compras`
-  MODIFY `id_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_proveedores`
